@@ -1,6 +1,6 @@
 # fluentdpub - fluentd backend for gocloud.dev's pubsub
 
-[![GoDoc](https://godoc.org/github.com/shibukawa/fluentdpub?status.svg)](https://godoc.org/github.com/shibukawa/fluentdpub)
+[![GoDoc](https://godoc.org/github.com/future-architect/fluentdpub?status.svg)](https://godoc.org/github.com/future-architect/fluentdpub)
 
 `fluentdpub` is a backend for gocloud.dev. It only supports publisher (topic) side.
 
@@ -18,7 +18,7 @@ import (
 	"context"
 
 	"gocloud.dev/pubsub"
-	_ "github.com/shibukawa/fluentdpub"
+	_ "github.com/future-architect/fluentdpub"
 )
 
 // pubsub.OpenTopic creates a *pubsub.Topic from a URL.
@@ -72,7 +72,7 @@ The `fluentdpub.OpenTopic` constructor opens a Fluentd subject as a topic. You m
 import (
 	"context"
 
-	"github.com/shibukawa/fluentdpub"
+	"github.com/future-architect/fluentdpub"
 )
 
 // pubsub.OpenTopic creates a *pubsub.Topic from a URL.
