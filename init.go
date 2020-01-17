@@ -26,7 +26,11 @@ type defaultDialer struct {
 }
 
 func (d defaultDialer) OpenTopicURL(ctx context.Context, u *url.URL) (*pubsub.Topic, error) {
-	c, tag, err := parseEnvVar(os.Getenv("FLUENTD_UPSTREAM_URL"))
+	return OpenTopicURL(ctx, u, os.Getenv("FLUENTD_UPSTREAM_URL"))
+}
+
+func OpenTopicURL(ctx context.Context, topicUrl *url.URL, upstreamUrl string) (*pubsub.Topic, error) {
+	c, tag, err := parseEnvVar(upstreamUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +42,7 @@ func (d defaultDialer) OpenTopicURL(ctx context.Context, u *url.URL) (*pubsub.To
 		Connection: conn,
 		TagPrefix:  tag,
 	}
-	return o.OpenTopicURL(ctx, u)
+	return o.OpenTopicURL(ctx, topicUrl)
 }
 
 // URLOpener opens Fluentd URLs like "fluentd://myapp.tag".
